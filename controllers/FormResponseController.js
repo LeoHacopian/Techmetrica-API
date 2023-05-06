@@ -4,18 +4,20 @@ const Questionnaire = require('../models/questionnaire.model');
 // Register a form response
 async function registerFormResponse(req, res) {
   try {
-    const { questionnaireId, responses } = req.body;
+    const { questionnaire, responses } = req.body;
+    console.log("questionnaireId")
+    console.log(questionnaire)
 
     // Check if the questionnaire exists
-    const questionnaire = await Questionnaire.findById(questionnaireId);
-    if (!questionnaire) {
+    const questionnaireNew = await Questionnaire.findById(questionnaire);
+    if (!questionnaireNew) {
       return res.status(404).json({ error: 'Questionnaire not found' });
     }
 
     // Create a new form response
     const formResponse = new FormResponse({
-      questionnaire: questionnaireId,
-      responses,
+      questionnaire: questionnaire,
+      responses: responses,
     });
 
     // Save the form response
