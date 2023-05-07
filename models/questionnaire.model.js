@@ -18,6 +18,7 @@ const QuestionnaireSchema = new mongoose.Schema({
         //or maybe pass "Numbers" as the only value in array, so you can have that ajs a key or something??? 
         //^^^ but then we already have "Number Wheel" as a type so we wouldn't need that
     }],
+    hasTaken: {type: Boolean, default: false},
     createdAt: {type: Date, default: Date.now}
 })
 
