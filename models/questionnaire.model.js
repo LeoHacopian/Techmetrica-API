@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const DateOnly = require("mongoose-dateonly")(mongoose)
 /*
 const QuestionSchema = new mongoose.Schema({
     number: {type: Number},
@@ -18,7 +17,8 @@ const QuestionnaireSchema = new mongoose.Schema({
         answers: [String]//just pass empty query if asking for numbers? and then just limit input in front end?
         //or maybe pass "Numbers" as the only value in array, so you can have that ajs a key or something??? 
         //^^^ but then we already have "Number Wheel" as a type so we wouldn't need that
-    }]
+    }],
+    createdAt: {type: Date, default: Date.now}
 })
 
 
