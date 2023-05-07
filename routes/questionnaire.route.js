@@ -18,6 +18,8 @@ router.get('/allItems', async (req, res, next) => {
     }
   });
 
+router.delete('/deleteResultById/:id', qController.deleteResultById);
+
 
 router.get("/test", async (req, res) => {
     res.send("Hello, testing12345!")
