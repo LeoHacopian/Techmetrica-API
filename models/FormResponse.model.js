@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 
 const FormResponseSchema = new mongoose.Schema({
-    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    // user_id: { type: mongoose.Schema.Types.ObjectId, required: true },
+    user_id: { type: String, required: true },
     questionnaire: { type: mongoose.Schema.Types.ObjectId, ref: 'Questionnaire', required: true },
     responses: [{
       questionNumber: { type: Number, required: true },

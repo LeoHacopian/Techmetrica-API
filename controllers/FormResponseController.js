@@ -5,9 +5,7 @@ const Questionnaire = require('../models/questionnaire.model');
 async function registerFormResponse(req, res) {
   try {
     const { user_id, questionnaire, responses } = req.body;
-    console.log("questionnaireId")
-    console.log(questionnaire)
-
+    
     // Check if the questionnaire exists
     const questionnaireNew = await Questionnaire.findById(questionnaire);
     if (!questionnaireNew) {
