@@ -4,7 +4,7 @@ const Questionnaire = require('../models/questionnaire.model');
 // Register a form response
 async function registerFormResponse(req, res) {
   try {
-    const { questionnaire, responses } = req.body;
+    const { user_id, questionnaire, responses } = req.body;
     console.log("questionnaireId")
     console.log(questionnaire)
 
@@ -16,6 +16,7 @@ async function registerFormResponse(req, res) {
 
     // Create a new form response
     const formResponse = new FormResponse({
+      user_id: user_id,
       questionnaire: questionnaire,
       responses: responses,
     });
@@ -30,6 +31,16 @@ async function registerFormResponse(req, res) {
   }
 }
 
+async function getAllResponses(req, res) {
+  try {
+    const results = await FormResponse.find();
+    res.status(200).json({ success: true, data: results });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
 module.exports = {
   registerFormResponse,
+  getAllResponses,
 };

@@ -9,4 +9,6 @@ router.post("/register", async (req, res) => {
     res.status(200).send(response)
 })
 
+router.get('/getAllResponses', FormResponseController.getAllResponses);
+
 module.exports = router
